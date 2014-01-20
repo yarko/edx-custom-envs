@@ -4,21 +4,31 @@ For use in development with the edX devstack, place these files in a directory
 called custom-env
 in your edx-platform.
 
+After creating your VM, after provisioning, you can copy this out with something
+like:
+```
+rsync -avup edx-custom-envs edx-platform/custom-env   # will create a custom-env
+```
+
 *Note:* this will be cleaned out by any provisioning which may happen when
 you perform a `vagrant up`, so be sure to save any needed changes made during
-development back out of edx-platorm/custom-env in to your local edx-custome-envs
+development back out of edx-platorm/custom-env in to your local edx-custom-envs
 repository.
+You can save needed changes with something like:
+```
+rsync -avup edx-platform/custom-env edx-custom-envs
+```
 
 ## Contents:
 
-- push.envs.sh
-  - *copies out devstack_custome.py to the lms and cms envs*
+- push.envs.sh - *use from within your VM*
+  - *copies out devstack_custom.py to the lms and cms envs*
   - *copies the themes directory to the directory above edx-platform*
   - *copies the theme configuration variables, `theme.env.json`*
 - devstack_custom.py
   - *your custom environmenet settings; builds on top of devstack*
 - theme.env.json
-  - *custom theme environment settings, read by your custome theme*
+  - *custom theme environment settings, read by your custom theme*
 - themes
   - your named theme directories are placed here, and referenced by `THEME_NAME`*
 
