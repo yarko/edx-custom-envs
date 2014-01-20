@@ -27,6 +27,7 @@ rsync -avup edx-platform/custom-env edx-custom-envs
   - *copies the theme configuration variables, `theme.env.json`*
 - devstack_custom.py
   - *your custom environmenet settings; builds on top of devstack*
+  - *any modified devstack named `devstack_*.py` will be pushed out - be careful not to overwrite existing names.*
 - theme.env.json
   - *custom theme environment settings, read by your custom theme*
 - themes

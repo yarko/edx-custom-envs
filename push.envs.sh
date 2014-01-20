@@ -7,9 +7,9 @@
 if [ "$(basename $PWD)" = "custom-env" ]
 then
     # the lms
-    rsync -avup devstack_apigee.py wingdbstub.py wingdebugpw ../lms/envs
+    rsync -avup devstack_*.py wingdbstub.py wingdebugpw ../lms/envs
     # the cms
-    rsync -avup devstack_apigee.py wingdbstub.py wingdebugpw ../cms/envs
+    rsync -avup devstack_*.py wingdbstub.py wingdebugpw ../cms/envs
 
     # the theme space for devstack, assumed to be one above edx-platform:
 
