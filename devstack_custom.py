@@ -1,4 +1,4 @@
-# lms/envs/devstack_apigee.py
+# lms/envs/devstack_custom.py
 #
 """
 Custom theming
