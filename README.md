@@ -7,7 +7,7 @@ in your edx-platform.
 After creating your VM, after provisioning, you can copy this out with something
 like:
 ```
-rsync -avup edx-custom-envs edx-platform/custom-env   # will create a custom-env
+rsync -avup -f'- .git/' edx-custom-envs/ edx-platform/custom-env/   # will create a custom-env
 ```
 
 *Note:* this will be cleaned out by any provisioning which may happen when
@@ -16,7 +16,7 @@ development back out of edx-platorm/custom-env in to your local edx-custom-envs
 repository.
 You can save needed changes with something like:
 ```
-rsync -avup edx-platform/custom-env edx-custom-envs
+rsync -avup edx-platform/custom-env/ edx-custom-envs/
 ```
 
 ## Contents:
@@ -50,6 +50,12 @@ file.
 - wingdbstub.py  # supply and configure from your wingIDE installation;
 - wingdebugpw    # supply and configure from your wingIDE installation;  
 - wingide5_5.0.2-1_amd64.deb  # same version of your host wingide;
+
+To install the wingide from the *.deb file, from within your VM,
+```
+sudo dpkg -i /edx/app/edxapp/edx-platform/custom-env/wingide5_5*.deb
+```
+
 
 ### Winpdb
 
