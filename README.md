@@ -26,6 +26,25 @@ In fact, it’s a good idea to make changes in the repository itself, and push c
 - themes
   - *your named theme directories are placed here, and referenced by `THEME_NAME`*
 
+  
+## Getting Started
+
+Clone this repository into the same directory as your devstack Vagrantfile exists.
+
+Clone the Stanford Theme into the themes directory here:
+```
+$ (cd themes; git clone https://github.com/Stanford-Online/edx-theme.git stanford)
+```
+
+From your devstack VM instance, as user edxapp, run:
+```
+$ /vagrant/edx-custom-theme/push.env.sh
+```
+
+Then refer to the [wiki]() for further guidelines.
+
+
+
 ## For debugging:
 
 For debugging, you will want to add files yourself.
