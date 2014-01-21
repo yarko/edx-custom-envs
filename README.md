@@ -3,10 +3,8 @@
 For use in development with the edX devstack, clone this repository to the directory
 which contains your `Vagrantfile`.
 
-After creating your VM, after provisioning, this directory will be accessible from within your VM in `/vagrant/edx-custome-envs`.
-```
-rsync -avup -f'- .git/' edx-custom-envs/ edx-platform/custom-env/   # will create a custom-env
-```
+After creating your VM, after provisioning, this directory will be accessible
+from within your VM in `/vagrant/edx-custome-envs`.
 
 *Note:*  Your edx-platform tree will be cleaned out by any provisioning which may happen when
 you perform a `vagrant up`, so be sure to save any needed changes made during
