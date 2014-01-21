@@ -1,32 +1,27 @@
 # Custom edX devstack environments:
 
-For use in development with the edX devstack, place these files in a directory
-called custom-env
-in your edx-platform.
+For use in development with the edX devstack, clone this repository to the directory
+which contains your `Vagrantfile`.
 
-After creating your VM, after provisioning, you can copy this out with something
-like:
+After creating your VM, after provisioning, this directory will be accessible from within your VM in `/vagrant/edx-custome-envs`.
 ```
 rsync -avup -f'- .git/' edx-custom-envs/ edx-platform/custom-env/   # will create a custom-env
 ```
 
-*Note:* this will be cleaned out by any provisioning which may happen when
+*Note:*  Your edx-platform tree will be cleaned out by any provisioning which may happen when
 you perform a `vagrant up`, so be sure to save any needed changes made during
-development back out of edx-platorm/custom-env in to your local edx-custom-envs
-repository.
-You can save needed changes with something like:
-```
-rsync -avup edx-platform/custom-env/ edx-custom-envs/
-```
+development back out of edx-platform.
+In fact, it’s a good idea to make changes in the repository itself, and push changes out into VM directories.
+
 
 ## Contents:
 
 - push.envs.sh - *use from within your VM*
   - *copies out devstack_custom.py to the lms and cms envs*
-  - *copies the themes directory to the directory above edx-platform*
-  - *copies the theme configuration variables, `theme.env.json`*
+  - *copies the themes directory to `/edx/app/edxapp`*
+  - *copies the theme configuration variables, `theme.env.json` to `/edx/app/edxapp`*
 - devstack_custom.py
-  - *your custom environmenet settings; builds on top of devstack*
+  - *your custom environment settings; builds on top of devstack*
   - *any modified devstack named `devstack_*.py` will be pushed out - be careful not to overwrite existing names.*
 - theme.env.json
   - *custom theme environment settings, read by your custom theme*
@@ -53,7 +48,7 @@ file.
 
 To install the wingide from the *.deb file, from within your VM,
 ```
-sudo dpkg -i /edx/app/edxapp/edx-platform/custom-env/wingide5_5*.deb
+sudo dpkg -i /vagrant/wingide5_5*.deb
 ```
 
 
