@@ -15,7 +15,7 @@ In fact, it’s a good idea to make changes in the repository itself, and push c
 ## Contents:
 
 - push.envs.sh - *use from within your VM*
-  - *copies out devstack_custom.py to the lms and cms envs*
+  - *copies devstack_*.py to the lms and cms envs*
   - *copies the themes directory to `/edx/app/edxapp`*
   - *copies the theme configuration variables, `theme.env.json` to `/edx/app/edxapp`*
 - devstack_custom.py
