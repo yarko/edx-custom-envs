@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 # setup the basic starting envs,
 # but rsync so as to not to
@@ -6,25 +6,21 @@
 #
 # This should be good for both devstack and fullstack VMs
 
-if [ "$PWD" != "/vagrant/edx-custom-envs" ]; then
+CUSTOM=/vagrant/edx-custom-envs
+
+EDXAPP=/edx/app/edxapp
+EDX_PLATFORM=$EDXAPP/edx-platform
+
+if [ "${0%/*}" != "${CUSTOM}" ] || [ "$(uname -s)" != "Linux" ]; then
     echo "This should be run from your VM."
     return 1;
 fi
 
-EDXAPP=/edx/app/edxapp
-PLATFORM=$EDXAPP/edx-platform
-
 # the lms
-rsync -avup devstack_*.py wingdbstub.py wingdebugpw $PLATFORM/lms/envs
+rsync -avup ${CUSTOM}/devstack_*.py $EDX_PLATFORM/lms/envs
 # the cms
-rsync -avup devstack_*.py wingdbstub.py wingdebugpw $PLATFORM/cms/envs
+rsync -avup ${CUSTOM}/devstack_*.py $EDX_PLATFORM/cms/envs
 
 # the theme space for devstack, assumed to be one above edx-platform:
-
-###
-# TODO: add a check for existence consistent w/ devstack
-#  i.e. be sure to copy to the correct place:
-if [ "$(uname -s)" = "Linux" ]; then
-    rsync -avup theme.env.json themes $EDXAPP
-fi
+rsync -avup ${CUSTOM}/theme.env.json ${CUSTOM}/themes $EDXAPP
 
