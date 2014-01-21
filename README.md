@@ -41,7 +41,7 @@ From your devstack VM instance, as user edxapp, run:
 $ /vagrant/edx-custom-theme/push.env.sh
 ```
 
-Then refer to the [wiki](wiki) for further guidelines.
+Then refer to the [wiki](https://github.com/yarko/edx-custom-envs/wiki) for further guidelines.
 
 
 
