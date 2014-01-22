@@ -16,10 +16,13 @@ if [ "${0%/*}" != "${CUSTOM}" ] || [ "$(uname -s)" != "Linux" ]; then
     return 1;
 fi
 
+# for now, we just make an aws_custom.py
+# sed -e 's/devstack/aws/' devstack_custom.py > aws_custom.py
+
 # the lms
-rsync -avup ${CUSTOM}/devstack_*.py $EDX_PLATFORM/lms/envs
+rsync -avup ${CUSTOM}/devstack_*.py ${CUSTOM}/aws_*.py $EDX_PLATFORM/lms/envs
 # the cms
-rsync -avup ${CUSTOM}/devstack_*.py $EDX_PLATFORM/cms/envs
+rsync -avup ${CUSTOM}/devstack_*.py ${CUSTOM}/aws_*.py $EDX_PLATFORM/cms/envs
 
 # the theme space for devstack, assumed to be one above edx-platform:
 rsync -avup ${CUSTOM}/theme.env.json ${CUSTOM}/themes $EDXAPP
